@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--配置mysql的jar位置-->
+    <classPathEntry location="C:\Users\wttzbs\.m2\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+    <!--一个数据库一个context-->
+    <context id="context" targetRuntime="MyBatis3Simple">
+        <!-- 注释-->
+        <commentGenerator>
+        <property name="suppressAllComments" value="false"/>
+        <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--jdbc连接 -->
+        <jdbcConnection userId="root" password="ting0129" driverClass="com.mysql.jdbc.Driver"
+                          connectionURL="jdbc:mysql://localhost:3306/business"/>
+
+        <!--类型转换 -->
+        <javaTypeResolver>
+            <!--是否使用bigDecimal，false可自动转化一下类型（long，integer，short，etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--实体类生成的位置-->
+        <javaModelGenerator targetPackage="com.neuedu.pojo" targetProject="./src/main/java">
+            <!--是否在当前路径下新家一层schma，eg：false路径com.oop.user.model，true：com.oop.eksp.user.model.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+            <!--是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--配置sql文件-->
+        <sqlMapGenerator targetPackage="com.neuedu.mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--生成Dao接口-->
+        <javaClientGenerator targetPackage="com.neuedu.dao" type="XMLMAPPER" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--配置数据表-->
+        <!--用户表-->
+        <table tableName="neuedu_user" domainObjectName="UserInfo" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--分类表-->
+        <table tableName="neuedu_category" domainObjectName="Category" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--商品表-->
+        <table tableName="neuedu_product" domainObjectName="Product" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--购物车表-->
+        <table tableName="neuedu_cart" domainObjectName="Cart" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--支付信息表-->
+        <table tableName="neuedu_order" domainObjectName="Order" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--订单表-->
+        <table tableName="neuedu_order_item" domainObjectName="OrderItem" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--订单明细表-->
+        <table tableName="neuedu_payinfo" domainObjectName="PanInfo" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--收货地址表-->
+        <table tableName="neuedu_shipping" domainObjectName="Shipping" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+    </context>
+</generatorConfiguration>
