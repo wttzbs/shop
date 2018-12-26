@@ -64,7 +64,7 @@
                enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
         <!--订单明细表-->
-        <table tableName="neuedu_payinfo" domainObjectName="PanInfo" enableCountByExample="false"
+        <table tableName="neuedu_pay_info" domainObjectName="PayInfo" enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
         <!--收货地址表-->
